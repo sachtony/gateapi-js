@@ -35,6 +35,7 @@
 
 
 <script>
+    //createPayment function in the Pi SDK
 const paymentData = {
     amount: number,  /* Pi Amount being Transacted */
     memo: string, /* "Any information that you want to add to payment" */
@@ -54,6 +55,22 @@ Pi.createPayment(paymentData, paymentCallbacks).then(function(payment) {
   }).catch(function(error) {
     console.error(error);
   });
+</script>
+
+<script>
+    //Server-Side Approval
+    const onReadyForServerApproval = (paymentId) => {
+        console.log("onReadyForServerApproval", paymentId);
+        axiosClient.post('/payments/approve', {paymentId}, config);
+     };
+</script>
+
+<script>
+    //Server-Side Completion
+    const onReadyForServerCompletion = (paymentId, txid) => {
+        console.log("onReadyForServerCompletion", paymentId, txid);
+        axiosClient.post('/payments/complete', {paymentId, txid}, config);
+      };
 </script>
 
 </body>
