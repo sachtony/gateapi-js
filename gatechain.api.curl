@@ -1,7 +1,0 @@
-https://gatescan.org/api
-   ?module=account
-   &action=tokenholding
-   &address=0x60A1FBc566ECA65af482C0950Ad2359fa1903Ea7
-   &page=1
-   &offset=10
-   &apikey=1ad642bd60736c4d7610df72f5861791
